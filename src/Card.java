@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Class representing a Set Game's Card values, traits and UI.
  * 
@@ -56,5 +58,14 @@ public class Card {
             default:
                 return null;
         }
+    }
+
+    public ArrayList<Integer> getCard(){
+        ArrayList<Integer> thisCard = new ArrayList<Integer>();
+        thisCard.add(getTrait(0));
+        thisCard.add(getTrait(1));
+        thisCard.add(getTrait(2));
+        thisCard.add(getTrait(3));
+        return thisCard;
     }
 }
