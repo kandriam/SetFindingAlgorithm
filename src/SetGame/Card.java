@@ -1,9 +1,5 @@
 package SetGame;
 
-import java.awt.Color;
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Class representing a Set Game's Card values, traits and UI.
  * 
@@ -26,20 +22,6 @@ public class Card {
     public static final int SHAPE_HEIGHT = 40;
 
     public static final int SHAPE_AND_CARD_STROKE_WIDTH = 2;
-
-    // List of base colors 
-    private final List<Color> colors = List.of(
-        Color.RED,
-        new Color(0, 200, 0),
-        Color.BLUE
-    );
-
-    // List of lighter versions of colors (instead of lined) for middle shading
-    private final List<Color> halfColors = List.of(
-        new Color(255, 127, 127),
-        new Color(200, 255, 200),
-        new Color(127, 127, 255)
-    );
 
 
     /**
@@ -75,22 +57,6 @@ public class Card {
         
             default:
                 return null;
-        }
-    }
-
-    /**
-     * Returns the color of fill based on its color AND fill status (aka full, half full or empty)
-     * @param colorInt      Which color it is between red, green, blue
-     * @param fillInt       Whether it is empty, light or dark
-     * @return              The color that the shape will be filled
-     */
-    private Color getColorFromInt(int colorInt, int fillInt) {
-        if (fillInt == 1) {
-            return halfColors.get(colorInt);
-        } else if (fillInt == 2) {
-            return colors.get(colorInt);
-        } else {
-            return Color.WHITE;
         }
     }
 }
