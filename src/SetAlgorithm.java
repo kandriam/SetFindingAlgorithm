@@ -1,11 +1,11 @@
-package SetGame;
+
 
 import java.util.ArrayList;
 
 public class SetAlgorithm {
     ArrayList<ArrayList<Card>> detectSets(ArrayList<Card> board){
         ArrayList<ArrayList<Card>> solList = new ArrayList<ArrayList<Card>>();
-        
+
 
         for (int i = 0; i < board.size(); i++) {
             for (int j = i+1; j <board.size(); j++) {

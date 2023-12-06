@@ -1,5 +1,3 @@
-package SetGame;
-
 /**
  * Class representing a Set Game's Card values, traits and UI.
  * 
