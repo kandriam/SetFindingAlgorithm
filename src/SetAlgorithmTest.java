@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class SetAlgorithmTest {
     static ArrayList<Card> deck = new ArrayList<Card>();
     static Integer NUMBER_OF_TRAIT_VARIANTS = 3;
-    SetAlgorithm algorithm;
+    static SetAlgorithm algorithm = new SetAlgorithm();
 
 
 
@@ -20,9 +20,19 @@ public class SetAlgorithmTest {
         }
     }
 
-    public ArrayList<ArrayList<Card>>  test1(){
+    public static ArrayList<ArrayList<Card>>  test1(){
         ArrayList<Card> startHand = new ArrayList<Card>();
+        startHand.add(new Card(0, 0, 0, 0));
+        startHand.add(new Card(0, 0, 0, 1));
+        startHand.add(new Card(0, 0, 0, 2));
+        startHand.add(new Card(1, 0, 0, 0));
+        startHand.add(new Card(1, 1, 0, 0));     
+        startHand.add(new Card(1, 2, 0, 0));
+
+        System.out.println(startHand);
+
         ArrayList<ArrayList<Card>> solved = algorithm.detectSets(startHand);
+        System.out.println(solved);
         return solved;
     }
     
@@ -30,11 +40,11 @@ public class SetAlgorithmTest {
 
     public static void main(String[] args) {
         System.out.println("Testing...");
-        createDeck();
 
-
-        for (Card card : deck){
-            System.out.println(card.getCard());
-        }
+        test1();
+        // createDeck();
+        // for (Card card : deck){
+        //     System.out.println(card.getCard());
+        // }
     }
 }
