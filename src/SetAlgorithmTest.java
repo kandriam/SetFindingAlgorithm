@@ -24,10 +24,10 @@ public class SetAlgorithmTest {
         ArrayList<ArrayList<Integer>> startHand = new ArrayList<ArrayList<Integer>>();
         startHand.add(algorithm.createCard(0, 0, 0, 0));
         startHand.add(algorithm.createCard(0, 0, 0, 1));
-        startHand.add(algorithm.createCard(0, 0, 0, 2));
-        startHand.add(algorithm.createCard(1, 0, 0, 0));
-        startHand.add(algorithm.createCard(1, 1, 0, 0));     
-        startHand.add(algorithm.createCard(1, 2, 0, 0));
+        // startHand.add(algorithm.createCard(0, 0, 0, 2));
+        // startHand.add(algorithm.createCard(1, 0, 0, 0));
+        // startHand.add(algorithm.createCard(1, 1, 0, 0));     
+        // startHand.add(algorithm.createCard(1, 2, 0, 0));
 
         System.out.println(startHand);
 
@@ -42,9 +42,5 @@ public class SetAlgorithmTest {
         System.out.println("Testing...");
 
         test1();
-        // createDeck();
-        // for (Card card : deck){
-        //     System.out.println(card.getCard());
-        // }
     }
 }
