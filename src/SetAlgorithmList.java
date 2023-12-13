@@ -2,19 +2,27 @@
 
 import java.util.ArrayList;
 
-public class SetAlgorithm {
-    public SetAlgorithm(){
+public class SetAlgorithmList {
+    public SetAlgorithmList(){
 
 
     }
     
+    ArrayList<Integer> createCard(Integer t1, Integer t2, Integer t3, Integer t4){
+        ArrayList<Integer> card = new ArrayList<Integer>();
+        card.add(t1);
+        card.add(t2);
+        card.add(t3);
+        card.add(t4);
+        return card;
+    }
 
     /**
      * @param board     Takes in a a list of cards
      * @return solList  Returns a list containing each set within the board
      */
-    ArrayList<ArrayList<Card>> detectSets(ArrayList<Card> board){
-        ArrayList<ArrayList<Card>> solList = new ArrayList<ArrayList<Card>>();
+    ArrayList<ArrayList<ArrayList<Integer>>> detectSets(ArrayList<ArrayList<Integer>> board){
+        ArrayList<ArrayList<ArrayList<Integer>>> solList = new ArrayList<ArrayList<ArrayList<Integer>>>();
         System.out.println(board);
 
         // Iterates each 0 < i < n for the first card in a possible set
@@ -26,13 +34,13 @@ public class SetAlgorithm {
             System.out.println("c2: " + board.get(j));
 
                 // Generates the third card k to complete the set with card1 and card2
-                Card k = generate3rdCard(board.get(i), board.get(j));
+                ArrayList<Integer> k = generate3rdCard(board.get(i), board.get(j));
                 System.out.println("k: " + k);
 
                 // If the board contains k, adds the set of i, j, k to the solution list
-                if (board.contains(k)){
+                if (board.subList(j, board.size()).contains(k)){
                     System.out.println("k is present");
-                    ArrayList<Card> currSet = new ArrayList<Card>();
+                    ArrayList<ArrayList<Integer>> currSet = new ArrayList<ArrayList<Integer>>();
 
                     currSet.add(board.get(i));
                     currSet.add(board.get(j));
@@ -55,12 +63,17 @@ public class SetAlgorithm {
      * @param c2     Takes in the second card in some set
      * @return c3    Returns the third card that would complete the set with c1 and c2
      */
-    Card generate3rdCard(Card c1, Card c2){
+    ArrayList<Integer> generate3rdCard(ArrayList<Integer> c1, ArrayList<Integer> c2){
+        ArrayList<Integer> c3 = new ArrayList<Integer>();
         int t1 = generateTrait(c1, c2, 0);
         int t2 = generateTrait(c1, c2, 1);
         int t3 = generateTrait(c1, c2, 2);
         int t4 = generateTrait(c1, c2, 3);
-        Card c3 = new Card(t1, t2, t3, t4); 
+        c3.add(t1);
+        c3.add(t2);
+        c3.add(t3);
+        c3.add(t4);
+
         return c3;
     }
 
@@ -71,22 +84,20 @@ public class SetAlgorithm {
      * @param t      Takes in what kind of trait the caller wants (color, number, shape or shading)
      * @return       The value of the respective trait that woulld complete the set  
      */
-    int generateTrait(Card c1, Card c2, int t){
-        if (c1.getTrait(t) == c2.getTrait(t)){
-            return c1.getTrait(t);
+    int generateTrait(ArrayList<Integer> c1, ArrayList<Integer> c2, int t){
+        if (c1.get(t) == c2.get(t)){
+            return c1.get(t);
         }
         else {
-            int r = 0;
-            if (c1.getTrait(t) == 0 && c2.getTrait(t) == 1){
-                r = 2;
+            if (c1.get(t) == 0 && c2.get(t) == 1){
+                return 2;
             }
-            else if (c1.getTrait(t) == 2 && c2.getTrait(t) == 0){
-                r = 1;
+            else if (c1.get(t) == 2 && c2.get(t) == 0){
+                return 1;
             }
             else {
-                r = 0;
+                return 0;
             }
-            return r;
         }
     }
     

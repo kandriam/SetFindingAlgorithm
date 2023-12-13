@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class SetAlgorithmTest {
     static ArrayList<Card> deck = new ArrayList<Card>();
     static Integer NUMBER_OF_TRAIT_VARIANTS = 3;
-    static SetAlgorithm algorithm = new SetAlgorithm();
+    static SetAlgorithmList algorithm = new SetAlgorithmList();
 
 
 
@@ -20,19 +20,19 @@ public class SetAlgorithmTest {
         }
     }
 
-    public static ArrayList<ArrayList<Card>>  test1(){
-        ArrayList<Card> startHand = new ArrayList<Card>();
-        startHand.add(new Card(0, 0, 0, 0));
-        startHand.add(new Card(0, 0, 0, 1));
-        startHand.add(new Card(0, 0, 0, 2));
-        startHand.add(new Card(1, 0, 0, 0));
-        startHand.add(new Card(1, 1, 0, 0));     
-        startHand.add(new Card(1, 2, 0, 0));
+    public static ArrayList<ArrayList<ArrayList<Integer>>>  test1(){
+        ArrayList<ArrayList<Integer>> startHand = new ArrayList<ArrayList<Integer>>();
+        startHand.add(algorithm.createCard(0, 0, 0, 0));
+        startHand.add(algorithm.createCard(0, 0, 0, 1));
+        startHand.add(algorithm.createCard(0, 0, 0, 2));
+        startHand.add(algorithm.createCard(1, 0, 0, 0));
+        startHand.add(algorithm.createCard(1, 1, 0, 0));     
+        startHand.add(algorithm.createCard(1, 2, 0, 0));
 
         System.out.println(startHand);
 
-        ArrayList<ArrayList<Card>> solved = algorithm.detectSets(startHand);
-        System.out.println(solved);
+        ArrayList<ArrayList<ArrayList<Integer>>> solved = algorithm.detectSets(startHand);
+        System.out.println("presentsets:" + solved);
         return solved;
     }
     
